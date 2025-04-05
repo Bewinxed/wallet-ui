@@ -17,11 +17,12 @@ export * from './ui/ui-sizes';
 export * from './ui/ui-stack';
 export * from './lib/ellipsify';
 
-// We know how to serialize BigInts.
-function patchBigintToJSON() {
-    (BigInt.prototype as unknown as { toJSON: () => string }).toJSON = function () {
-        return this.toString();
-    };
+declare global {
+    interface BigInt {
+        toJSON(): string;
+    }
 }
 
-patchBigintToJSON();
+BigInt.prototype.toJSON = function () {
+    return this.toString();
+};

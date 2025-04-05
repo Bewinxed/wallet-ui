@@ -8,8 +8,8 @@ import {
 } from '@wallet-ui/playground-react';
 import { Suspense } from 'react';
 import { Navigate, useRoutes } from 'react-router';
-import { AppLayout } from './app-layout.tsx';
-import { AppProviders } from './app-providers.tsx';
+import { AppLayout } from '../components/app-layout.tsx';
+import { AppProviders } from '../components/app-providers.tsx';
 
 export function App() {
     const router = useRoutes([
